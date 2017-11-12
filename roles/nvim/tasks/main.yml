@@ -1,0 +1,16 @@
+---
+# tasks file for nvim
+
+- name: install nvim
+  command: "{{ item }}"
+  with_items:
+    - apt-get install software-properties-common
+    - add-apt-repository ppa:neovim-ppa/stable
+    - apt-get update
+    - apt-get install neovim python-dev python-pip python3-dev python3-pip
+
+- name: copy template init.vim
+  template:
+    src: init.vim.j2
+    dest: "/home/{{ ansible_user }}/.config/nvim/init.vim"
+

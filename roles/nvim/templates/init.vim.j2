@@ -1,0 +1,91 @@
+let g:deoplete#enable_at_startup= 1
+
+let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:NERDTreeChDirMode = 2
+let g:ctrlp_working_path_mode = 'rw'
+
+nmap <C-b> :TagbarToggle<CR>
+nmap <C-k> :NERDTreeToggle<CR>
+nmap <C-q> :q!<CR>
+nmap <C-p> :FZF<CR>
+nmap <C-n><C-T> :tabe<CR>
+map ZZ :xa!<CR>
+let g:NERDTreeChDirMode       = 2
+let g:ctrlp_working_path_mode = 'rw'
+
+
+"""""""""""""""""""""""
+" OCAML
+"""""""""""""""""""""""
+set guicursor=
+set rtp+=/usr/local/share/ocamlmerlin/vim
+autocmd FileType ocaml source /home/rodesousa/.opam/system/share/ocp-indent/vim/indent/ocaml.vim
+let g:syntastic_ocaml_checkers = ['merlin']
+nmap <C-t> :MerlinTypeOf<CR>
+
+"""""""""""""""""""""""
+" indentation
+"""""""""""""""""""""""
+set autoindent    " indentation automatique avancée
+set smartindent   " indentation plus intelligente
+set ruler
+set shiftwidth=2  " nombre de tabulation pour l'indentation
+set tabstop=2		  " nombre d'espace pour une tabulation
+set expandtab
+
+""""""""""""""""""""""""
+" Map
+""""""""""""""""""""""""
+
+" esc pour terminal nvim
+tnoremap <Esc> <C-\><C-n>
+
+" numérotation des lignes
+set number
+
+" voir les caracteres de MERDE
+set list
+
+""""""""""""""""""""""""
+" ab
+""""""""""""""""""""""""
+
+ab namerds Roberto De Sousa
+ab mailrds dessroberto@gmail.com
+ab confgi config
+
+""""""""""""""""""""""""
+" Plugin
+""""""""""""""""""""""""
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'vim-airline/vim-airline'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'hashivim/vim-terraform'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'vim-syntastic/syntastic'
+"Plug 'juliosueiras/vim-terraform-completion'
+Plug 'pearofducks/ansible-vim'
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-fugitive'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'ekalinin/Dockerfile.vim', { 'do': 'make'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+call plug#end()

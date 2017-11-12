@@ -1,0 +1,10 @@
+- hosts: localhost
+  become: True
+
+  roles:
+    - system
+    - nvim
+    - terminator
+    - git
+    - golang
+    - docker
