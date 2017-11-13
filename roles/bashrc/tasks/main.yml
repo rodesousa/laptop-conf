@@ -1,0 +1,18 @@
+---
+# tasks file for bashrc
+
+- name: copy template init.vim
+  template:
+    src: alias.j2
+    dest: "/home/{{ ansible_user }}/.alias"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: put alias in bashrc
+  lineinfile:
+    path: "/home/{{ ansible_user }}/.bashrc"
+    insertafter: EOF
+    line: "{{ item }}"
+  with_items:
+    - source ~/.alias
+    - eval $(thefuck --alias)

@@ -1,0 +1,27 @@
+#alias
+
+alias l='ls -l'
+alias la='ls -la'
+alias rtl='ls -rtl'
+alias vi='vim'
+alias ..='cd ..'
+alias datef='echo `date +%Y-%m-%d`'
+alias fjson='python -m json.tool'
+alias ni=nvim
+#alias psbt="sbt -Dhttp.proxyHost=proxy.le-figaro.com -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxy.le-figaro.com -Dhttps.proxyPort=8080 -Dhttp.nonProxyHosts='localhost|127.0.0.1|leacv|leaoffres|keljob-search-api|dev.keljob.com|keljob-api|*.adencf.local'"
+
+#docker stop
+docker_stop(){
+    docker stop $(docker ps -a -q)
+}
+alias dockerstop="docker_stop"
+
+#ip
+show_ip(){
+    wget http://ipinfo.io/ip -qO -
+}
+alias showip='show_ip'
+
+alias free='free -h'
+export GOPATH=~/Go
+export PATH=$PATH:$GOPATH/bin

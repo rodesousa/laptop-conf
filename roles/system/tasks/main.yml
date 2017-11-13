@@ -1,13 +1,13 @@
 ---
 # tasks file for terminator
 
-- name: install terminator
+- name: install generics packets
   command: "{{ item }}"
   with_items:
-    - apt-get install terminator
+    - apt-get install curl python3-dev python3-pip -y
 
-- name: copy template config
-  template:
-    src: config.j2
-    dest: "/home/{{ ansible_user }}/.config/terminator/config"
+- name: install fuck
+  command: "{{ item }}"
+  with_items:
+    - pip3 install thefuck
 

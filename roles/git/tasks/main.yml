@@ -1,13 +1,36 @@
 ---
-# tasks file for terminator
+# tasks file for git
 
-- name: install terminator
+- name: install repo git
   command: "{{ item }}"
   with_items:
-    - apt-get install terminator
+    - add-apt-repository ppa:git-core/ppa
 
-- name: copy template config
-  template:
-    src: config.j2
-    dest: "/home/{{ ansible_user }}/.config/terminator/config"
+- name: apt update
+  command: "{{ item }}"
+  with_items:
+    - apt-get update
+  ignore_errors: yes
 
+- name: install repo git
+  command: "{{ item }}"
+  with_items:
+    - apt-get install git tig -y
+
+- name: copy git conf
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  with_items:
+    - { src: files/git_prompt, dest: "/home/{{ ansible_user }}/.git_prompt" }
+    - { src: files/gitconfig, dest: "/home/{{ ansible_user }}/.gitconfig" }
+
+- name: put config git in bashrc
+  lineinfile:
+    path: "/home/{{ ansible_user }}/.bashrc"
+    insertafter: EOF
+    line: "{{ item }}"
+  with_items:
+    - source ~/.git_prompt

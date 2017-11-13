@@ -1,0 +1,8 @@
+---
+# tasks file for bashrc
+
+- name: install ubuntu applet
+  command: "{{ item }}"
+  with_items:
+    - apt-get install indicator-multiload indicator-datetime -y
+
