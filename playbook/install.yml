@@ -4,8 +4,8 @@
   roles:
     #- system
     - {role: bashrc, tags: bashrc }
+    - {role: git, tags: git }
 #    - nvim
     #    - terminator
-    - git
 #    - golang
 #    - docker
