@@ -1,13 +1,17 @@
 ---
 # tasks file for terminator
 
-- name: install terminator
+- name: install golang
   command: "{{ item }}"
   with_items:
-    - apt-get install terminator
+    - apt-get install golang -y
+    - mkdir -p "/home/{{ ansible_user }}/Go"
 
-- name: copy template config
-  template:
-    src: config.j2
-    dest: "/home/{{ ansible_user }}/.config/terminator/config"
-
+- name: put config golang in bashrc
+  lineinfile:
+    path: "/home/{{ ansible_user }}/.bashrc"
+    insertafter: EOF
+    line: "{{ item }}"
+  with_items:
+    - export GOPATH=~/Go
+    - export PATH=$PATH:$GOPATH/bin
