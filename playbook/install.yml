@@ -2,10 +2,10 @@
   become: True
 
   roles:
-    #- system
+    - {role: system, tags: system }
     - {role: bashrc, tags: bashrc }
     - {role: git, tags: git }
-#    - nvim
-    #    - terminator
-#    - golang
-#    - docker
+    - {role: nvim, tags: nvim }
+    - {role: terminator, tags: terminator }
+    - {role: golang, tags: golang }
+    - {role: docker, tags: docker }
