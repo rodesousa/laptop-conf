@@ -5,7 +5,13 @@
   command: "{{ item }}"
   with_items:
     - apt-get install golang -y
-    - mkdir -p "/home/{{ ansible_user }}/Go"
+
+- file:
+    path: "/home/{{ ansible_user }}/Go"
+    state: directory
+    mode: 0755
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
 
 - name: put config golang in bashrc
   lineinfile:
