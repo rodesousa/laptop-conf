@@ -1,10 +1,13 @@
 ---
 # tasks file for terminator
 
+- name: install repo
+  command: "{{ item }}"
+  with_items:
+    - add-apt-repository ppa:cairo-dock-team/ppa
+
 - name: install packet xfce
   command: "{{ item }}"
   with_items:
-    - apt-get install xfce4-goodies
-    - add-apt-repository ppa:cairo-dock-team/ppa
-    - apt-get install cairo-dock cairo-dock-plug-ins
-
+    - apt-get install xfce4-goodies cairo-dock cairo-dock-plug-ins xfce4-dev-tools wmctrl xdotool -y
+    - apt-get install xserver-xorg-dev libgtk2.0-dev libxfce4ui-1-0 xfce4-panel-dev libexo-1-dev -y
