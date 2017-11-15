@@ -19,5 +19,5 @@
     insertafter: EOF
     line: "{{ item }}"
   with_items:
-    - export GOPATH=~/Go
+    - export GOPATH=~/go
     - export PATH=$PATH:$GOPATH/bin
