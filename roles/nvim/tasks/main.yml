@@ -16,7 +16,10 @@
 - name: install nvim
   command: "{{ item }}"
   with_items:
-    - apt-get install neovim python-dev python-pip python3-dev python3-pip ctags -y
+    - apt-get install neovim python-dev python-pip python3-dev python3-pip ctags ruby ruby-all-dev -y
+    - pip3 install --upgrade neovim
+    - pip2 install --upgrade neovim
+    - gem install neovim
 
 - name: install vim-plug
   command: "{{ item }}"
