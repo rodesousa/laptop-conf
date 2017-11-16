@@ -3,6 +3,7 @@
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
+let g:deoplete#enable_at_startup= 1
 if has('vim_starting')
   set nocompatible               " Be iMproved
 endif
@@ -46,7 +47,9 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
+Plug 'juliosueiras/vim-terraform-completion'
 Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -396,9 +399,9 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
-noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
-noremap XX "+x<CR>
+" noremap YY "+y<CR>
+" noremap <leader>p "+gP<CR>
+" noremap XX "+x<CR>
 
 if has('macunix')
   " pbcopy for OSX copy/paste
