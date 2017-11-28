@@ -9,3 +9,4 @@
     - {role: terminator, tags: terminator }
     - {role: golang, tags: golang }
     - {role: docker, tags: docker }
+    - {role: kube, tags: kube }

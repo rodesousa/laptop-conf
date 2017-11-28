@@ -10,4 +10,6 @@
   command: "{{ item }}"
   with_items:
     - pip3 install thefuck
+    - pip install ansible
+  become: false
 

@@ -40,3 +40,8 @@
     dest: "/home/{{ ansible_user }}/.config/nvim/init.vim"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+
+- name: install snipet ansible
+  command: "{{ item }}"
+  with_items:
+    - python /home/{{ ansible_user}}/.config/nvim/plugged/ansible-vim/UltiSnips/generaty.py
