@@ -1,0 +1,21 @@
+---
+# tasks file for docker
+
+- name: download kubectl
+  shell: "{{ item }}"
+  with_items:
+    - 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"'
+
+- name: copy kubectl binary
+  copy:
+    src: kubectl
+    dest: /usr/bin/kubectl
+    mode: 0755
+
+- name: put completion in bashrc
+  lineinfile:
+    path: "/home/{{ ansible_user }}/.bashrc"
+    insertafter: EOF
+    line: "{{ item }}"
+  with_items:
+    - source <(kubectl completion bash)
