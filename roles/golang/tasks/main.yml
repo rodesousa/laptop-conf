@@ -20,4 +20,5 @@
     line: "{{ item }}"
   with_items:
     - export GOPATH=~/go
+    - export GOSRC=/home/{{ ansible_user }}/go/src/github.com/rdesousa
     - export PATH=$PATH:$GOPATH/bin
