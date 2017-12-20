@@ -58,6 +58,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " ansible
 Plug 'pearofducks/ansible-vim'
+ab ansitem "{{ item }}"
 
 " Terraform
 Plug 'juliosueiras/vim-terraform-completion'
@@ -141,9 +142,8 @@ set expandtab
 let mapleader=','
 
 "macro
-let @a='bi{{ wea }}'
-let @"='bi"wea"'
-
+let @m='bi{{ wea }}'
+let @q='c""P'
 
 "" Enable hidden buffers
 set hidden
