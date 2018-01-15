@@ -47,6 +47,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-scripts/grep.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
@@ -55,6 +56,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'mattn/emmet-vim'
 
 " ansible
 Plug 'pearofducks/ansible-vim'
@@ -336,6 +338,12 @@ set autoread
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
+"" move your body
+map <C-Left> <C-W>h<C-W>_
+map <C-Right> <C-W>l<C-W>_
+map <C-Up> <C-W>k<C-W>_
+map <C-Down> <C-W>j<C-W>_
+
 " "" Git
 " noremap <Leader>ga :Gwrite<CR>
 " noremap <Leader>gc :Gcommit<CR>
@@ -576,3 +584,4 @@ else
 endif
 let g:SuperTabDefaultCompletionType = "context"
 hi MatchParen cterm=NONE,bold gui=NONE,bold ctermfg=15 guifg=#fdf6e3 ctermbg=12 guibg=#839496
+
