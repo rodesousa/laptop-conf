@@ -26,14 +26,14 @@ alias free='free -h'
 export GOPATH=~/Go
 export PATH=$PATH:$GOPATH/bin
 
-fe() {
+fvim() {
   local files
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 # fuzzy grep open via ag
-fgg() {
+fggrep() {
   local file
 
   file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
