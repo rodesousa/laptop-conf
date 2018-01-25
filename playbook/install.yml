@@ -5,7 +5,7 @@
     - {role: system, tags: system }
     - {role: bashrc, tags: bashrc }
     - {role: git, tags: git }
-    - {role: nvim, tags: nvim }
+    - {role: editor, tags: editor }
     - {role: terminator, tags: terminator }
     - {role: golang, tags: golang }
     - {role: docker, tags: docker }

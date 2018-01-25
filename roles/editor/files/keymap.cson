@@ -1,0 +1,12 @@
+'body':
+  'alt-right': 'pane:show-next-item'
+  'alt-left': 'pane:show-previous-item'
+'body .native-key-bindings':
+  'alt-right': 'unset!'
+  'alt-left': 'unset!'
+'.tree-view':
+  'alt-right': 'unset!'
+  'alt-left': 'unset!'
+'atom-workspace atom-text-editor':
+  'alt-right': 'unset!'
+  'alt-left': 'unset!'

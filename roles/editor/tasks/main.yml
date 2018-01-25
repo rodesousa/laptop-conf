@@ -4,7 +4,7 @@
 - name: install repo nvim
   command: "{{ item }}"
   with_items:
-    - apt-get install software-properties-common -y
+    - apt-get install software-properties-common atom -y
     - add-apt-repository ppa:neovim-ppa/stable
 
 - name: apt update
@@ -30,6 +30,13 @@
 - file:
     path: "/home/{{ ansible_user }}/.config/nvim"
     state: directory
+    mode: 0755
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- file:
+    src: keymap.cson
+    path: "/home/{{ ansible_user }}/.atom/keymap.cson"
     mode: 0755
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
